@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" class="bg-gray-900 text-gray-100">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="A community driven launchpad." />
+    <title>Stealth Pad</title>
+
+    <script>
+      ;(darkModeEnabled => {
+        document.documentElement.classList.toggle('dark', darkModeEnabled)
+      })(
+        window.localStorage.getItem('STEALTH_DARKMODE') === null ||
+          window.localStorage.getItem('STEALTH_DARKMODE') === '1',
+      )
+    </script>
+
+    <script>
+      ;(isHTTPS => {
+        if (!isHTTPS) {
+          const url = new URL(window.location.href)
+          url.protocol = 'https:'
+          window.location.assign(url.href)
+        }
+      })(
+        window.location.hostname.startsWith('localhost') ||
+          window.location.hostname.startsWith('192.168.1.') ||
+          window.location.protocol.startsWith('https'),
+      )
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MKNWXLTP68"></script> 
+    <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-MKNWXLTP68'); </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
